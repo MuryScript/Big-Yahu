@@ -269,7 +269,7 @@ function Library:CreateWindow(Cfg)
     local Subtitle   = Cfg.SubTitle        or "State of Israel"
     local LoadTitle  = Cfg.LoadingTitle    or "Netanyahu Mode"
     local LoadSub    = Cfg.LoadingSubtitle or "עם ישראל חי"
-    local LoadImage  = Cfg.LoadingImage
+    local LoadImage  = Cfg.LoadingImage or 88477104967157
     local ShowText   = Cfg.ShowText        or "✡ Open"
     local ThemeName  = Cfg.Theme           or "Bibi"
 
@@ -313,19 +313,16 @@ function Library:CreateWindow(Cfg)
     LoadScreen.ZIndex           = 200
     LoadScreen.Parent           = Gui
 
-    local LoadStarLbl = Instance.new("TextLabel")
-    LoadStarLbl.BackgroundTransparency = 1
-    LoadStarLbl.AnchorPoint    = Vector2.new(0.5, 0)
-    LoadStarLbl.Size           = UDim2.new(0, 80, 0, 80)
-    LoadStarLbl.Position       = UDim2.new(0.5, 0, 0.5, -148)
-    LoadStarLbl.Text           = "✡"
-    LoadStarLbl.TextColor3     = T.Accent
-    LoadStarLbl.Font           = Enum.Font.GothamBold
-    LoadStarLbl.TextSize       = 64
-    LoadStarLbl.TextXAlignment = Enum.TextXAlignment.Center
-    LoadStarLbl.TextYAlignment = Enum.TextYAlignment.Center
-    LoadStarLbl.ZIndex         = 202
-    LoadStarLbl.Parent         = LoadScreen
+    local LoadBibiImg = Instance.new("ImageLabel")
+    LoadBibiImg.BackgroundTransparency = 1
+    LoadBibiImg.AnchorPoint    = Vector2.new(0.5, 0)
+    LoadBibiImg.Size           = UDim2.new(0, 80, 0, 80)
+    LoadBibiImg.Position       = UDim2.new(0.5, 0, 0.5, -148)
+    LoadBibiImg.Image          = "rbxassetid://88477104967157"
+    LoadBibiImg.ScaleType      = Enum.ScaleType.Fit
+    LoadBibiImg.ZIndex         = 202
+    LoadBibiImg.Parent         = LoadScreen
+    Corner(LoadBibiImg, 40)
 
     local LoadCenter = Instance.new("Frame")
     LoadCenter.BackgroundTransparency = 1
@@ -444,21 +441,17 @@ function Library:CreateWindow(Cfg)
     WinStroke.Parent       = Win
     Reg(WinStroke, "Color", "CardStroke")
 
-    local WatermarkLbl = Instance.new("TextLabel")
-    WatermarkLbl.BackgroundTransparency = 1
-    WatermarkLbl.AnchorPoint    = Vector2.new(1, 1)
-    WatermarkLbl.Size           = UDim2.new(0, 90, 0, 90)
-    WatermarkLbl.Position       = UDim2.new(1, -6, 1, -6)
-    WatermarkLbl.Text           = "✡"
-    WatermarkLbl.TextColor3     = T.Accent
-    WatermarkLbl.TextTransparency = 0.88
-    WatermarkLbl.Font           = Enum.Font.GothamBold
-    WatermarkLbl.TextSize       = 80
-    WatermarkLbl.TextXAlignment = Enum.TextXAlignment.Right
-    WatermarkLbl.TextYAlignment = Enum.TextYAlignment.Bottom
-    WatermarkLbl.ZIndex         = 9
-    WatermarkLbl.Parent         = Win
-    Reg(WatermarkLbl, "TextColor3", "Accent")
+    local WatermarkImg = Instance.new("ImageLabel")
+    WatermarkImg.BackgroundTransparency = 1
+    WatermarkImg.ImageTransparency  = 0.82
+    WatermarkImg.AnchorPoint        = Vector2.new(1, 1)
+    WatermarkImg.Size               = UDim2.new(0, 90, 0, 60)
+    WatermarkImg.Position           = UDim2.new(1, -6, 1, -6)
+    WatermarkImg.Image              = "rbxassetid://135711266569834"
+    WatermarkImg.ScaleType          = Enum.ScaleType.Fit
+    WatermarkImg.ZIndex             = 9
+    WatermarkImg.Parent             = Win
+    Corner(WatermarkImg, 4)
 
     local DragHandle = Instance.new("Frame")
     DragHandle.BackgroundColor3 = T.Handle
@@ -480,20 +473,16 @@ function Library:CreateWindow(Cfg)
     Header.Parent           = Win
     Reg(Header, "BackgroundColor3", "HeaderBG")
 
-    local HeaderStarLbl = Instance.new("TextLabel")
-    HeaderStarLbl.BackgroundTransparency = 1
-    HeaderStarLbl.AnchorPoint    = Vector2.new(0, 0.5)
-    HeaderStarLbl.Size           = UDim2.new(0, 28, 0, 28)
-    HeaderStarLbl.Position       = UDim2.new(0, 8, 0.5, 0)
-    HeaderStarLbl.Text           = "✡"
-    HeaderStarLbl.TextColor3     = T.Accent
-    HeaderStarLbl.Font           = Enum.Font.GothamBold
-    HeaderStarLbl.TextSize       = 20
-    HeaderStarLbl.TextXAlignment = Enum.TextXAlignment.Center
-    HeaderStarLbl.TextYAlignment = Enum.TextYAlignment.Center
-    HeaderStarLbl.ZIndex         = 14
-    HeaderStarLbl.Parent         = Header
-    Reg(HeaderStarLbl, "TextColor3", "Accent")
+    local HeaderFlagImg = Instance.new("ImageLabel")
+    HeaderFlagImg.BackgroundTransparency = 1
+    HeaderFlagImg.AnchorPoint    = Vector2.new(0, 0.5)
+    HeaderFlagImg.Size           = UDim2.new(0, 38, 0, 26)
+    HeaderFlagImg.Position       = UDim2.new(0, 8, 0.5, 0)
+    HeaderFlagImg.Image          = "rbxassetid://135711266569834"
+    HeaderFlagImg.ScaleType      = Enum.ScaleType.Fit
+    HeaderFlagImg.ZIndex         = 14
+    HeaderFlagImg.Parent         = Header
+    Corner(HeaderFlagImg, 3)
 
     local NavLine = Instance.new("Frame")
     NavLine.BackgroundColor3 = T.Accent
